@@ -28,7 +28,6 @@ list {
 
 list2 {
     align-items: center;
-    gap: 600;
     direction: row;
 }
 
