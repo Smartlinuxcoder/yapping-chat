@@ -28,8 +28,8 @@ list {
 
 list2 {
     align-items: center;
-
-    direction: column;
+    gap: 600;
+    direction: row;
 }
 
 item {
@@ -66,3 +66,13 @@ or {
     align-items: right;
     gap:10;
 }
+
+chat1 {
+    direction: column;
+}
+
+
+chat2 {
+    direction: column;
+}
+
