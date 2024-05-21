@@ -49,7 +49,7 @@ loginbutton.on_click(function()
         .. "}"
     print(body)
     local res = fetch({
-        url = "http://127.0.0.1:3000/api/login",
+        url = "https://chat.smartlinux.xyz/api/login",
         method = "POST",
         headers = { ["Content-Type"] = "application/json" },
         body = body,
@@ -65,7 +65,7 @@ loginbutton.on_click(function()
         token = res.token
         result.set_content("Login successful")
         local messages = fetch({
-            url = "http://127.0.0.1:3000/api/messages",
+            url = "https://chat.smartlinux.xyz/api/messages",
             method = "GET",
             headers = { 
                 ["Content-Type"] = "application/json",
@@ -89,7 +89,7 @@ registerbutton.on_click(function()
         .. "}"
     print(body)
     local res = fetch({
-        url = "http://127.0.0.1:3000/api/register",
+        url = "https://chat.smartlinux.xyz/api/register",
         method = "POST",
         headers = { ["Content-Type"] = "application/json" },
         body = body,
@@ -112,7 +112,7 @@ privateSendButton.on_click(function()
         .. "}"
     print(body)
     local res = fetch({
-        url = "http://127.0.0.1:3000/api/send",
+        url = "https://chat.smartlinux.xyz/api/send",
         method = "POST",
         headers = { 
             ["Content-Type"] = "application/json",
@@ -123,7 +123,7 @@ privateSendButton.on_click(function()
     if res.status == 200 then
         result.set_content("Message sent successfully")
         local messages = fetch({
-            url = "http://127.0.0.1:3000/api/messages",
+            url = "https://chat.smartlinux.xyz/api/messages",
             method = "GET",
             headers = { 
                 ["Content-Type"] = "application/json",
@@ -144,7 +144,7 @@ publicSendButton.on_click(function()
         .. "}"
     print(body)
     local res = fetch({
-        url = "http://127.0.0.1:3000/api/public-message",
+        url = "https://chat.smartlinux.xyz/api/public-message",
         method = "POST",
         headers = { 
             ["Content-Type"] = "application/json",
@@ -155,7 +155,7 @@ publicSendButton.on_click(function()
     if res.status == 200 then
         result.set_content("Public message sent successfully")
         local messages = fetch({
-            url = "http://127.0.0.1:3000/api/public-messages",
+            url = "https://chat.smartlinux.xyz/api/public-messages",
             method = "GET",
             headers = { 
                 ["Content-Type"] = "application/json",
