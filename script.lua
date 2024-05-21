@@ -15,6 +15,8 @@ local privateSendButton = get("privatesend")
 local publicMessage = get("publicsend-message")
 local publicSendButton = get("publicsend")
 
+local refreshButton = get("refresh")
+
 local token
 
 local function formatMessages(data)
@@ -176,4 +178,27 @@ publicSendButton.on_click(function()
     else
         result.set_content("Cannot send public message")
     end
+end)
+
+refreshButton.on_click(function()
+    local messages = fetch({
+        url = "https://chat.smartlinux.xyz/api/messages",
+        method = "GET",
+        headers = { 
+            ["Content-Type"] = "application/json",
+            ["Authorization"] = token 
+        },
+    })
+    messagesitem.set_content(formatMessages(messages.messages))
+    local messages = fetch({
+        url = "https://chat.smartlinux.xyz/api/public-messages",
+        method = "GET",
+        headers = { 
+            ["Content-Type"] = "application/json",
+            ["Authorization"] = token 
+        },
+    })
+    publicChat.set_content(formatMessages(messages.messages))
+
+    result.set_content("Refreshed")
 end)
