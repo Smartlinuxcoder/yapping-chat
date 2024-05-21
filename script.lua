@@ -5,12 +5,14 @@ local loginbutton = get("login")
 local registerbutton = get("register")
 
 local result = get("result")
-local balanceitem = get("balance")
-local transactionsitem = get("transactions")
+local mentionesitem = get("mentiones")
 
 local sendUsername = get("send-username")
-local sendAmount = get("send-amount")
-local sendButton = get("send")
+local sendMessage = get("send-message")
+local privateSendButton = get("privatesend")
+
+local publicMessage = get("publicsend-message")
+local publicSendButton = get("publicsend")
 
 local token
 
@@ -19,11 +21,11 @@ local function formatTransactions(data)
     for _, transaction in ipairs(data) do
         local success, formattedTransaction = pcall(function()
             return string.format(
-                "[%d] - Sender: %s, Receiver: %s, Amount: %d, Timestamp: %s\n",
+                "[%d] - Sender: %s, Receiver: %s, Message: %d, Timestamp: %s\n",
                 transaction.id,
                 transaction.sender,
                 transaction.receiver,
-                transaction.amount,
+                transaction.message,
                 transaction.timestamp
             )
         end)
