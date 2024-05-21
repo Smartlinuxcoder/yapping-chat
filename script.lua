@@ -6,6 +6,7 @@ local registerbutton = get("register")
 
 local result = get("result")
 local messagesitem = get("messages")
+local publicChat = get("public-chat")
 
 local sendUsername = get("send-username")
 local sendMessage = get("send-message")
@@ -73,6 +74,15 @@ loginbutton.on_click(function()
             },
         })
         messagesitem.set_content(formatMessages(messages.messages))
+		local messages = fetch({
+            url = "https://chat.smartlinux.xyz/api/public-messages",
+            method = "GET",
+            headers = { 
+                ["Content-Type"] = "application/json",
+                ["Authorization"] = token 
+            },
+        })
+        publicChat.set_content(formatMessages(messages.messages))
     else
         result.set_content("Failed due to unknown error.")
     end
@@ -162,7 +172,7 @@ publicSendButton.on_click(function()
                 ["Authorization"] = token 
             },
         })
-        messagesitem.set_content(formatMessages(messages.messages))
+        publicChat.set_content(formatMessages(messages.messages))
     else
         result.set_content("Cannot send public message")
     end
