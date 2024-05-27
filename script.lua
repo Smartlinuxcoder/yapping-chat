@@ -19,6 +19,8 @@ local refreshButton = get("refresh")
 
 local token
 
+result.set_content(".")
+
 local function formatMessages(data)
     local formattedData = {}
     for _, message in ipairs(data) do
